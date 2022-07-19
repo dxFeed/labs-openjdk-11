@@ -37,7 +37,7 @@ static jstring getNumberSymbolString(JNIEnv *env, jstring jlangtag, jstring jdef
 static jchar getNumberSymbolChar(JNIEnv *env, jstring jlangtag, jchar jdefault, CFStringRef type);
 
 // from java_props_macosx.c
-extern char * getMacOSXLocale(int cat);
+extern char * getAppleLocale(int cat);
 extern char * getPosixLocale(int cat);
 
 /*
@@ -61,7 +61,7 @@ JNIEXPORT jstring JNICALL Java_sun_util_locale_provider_HostLocaleProviderAdapte
             break;
     }
 
-    localeString = getMacOSXLocale(posixCat);
+    localeString = getAppleLocale(posixCat);
     if (localeString == NULL) {
         localeString = getPosixLocale(posixCat);
         if (localeString == NULL) {
