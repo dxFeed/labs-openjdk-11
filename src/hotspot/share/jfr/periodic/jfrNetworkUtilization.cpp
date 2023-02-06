@@ -34,6 +34,13 @@
 #include "utilities/globalDefinitions.hpp"
 #include "utilities/growableArray.hpp"
 
+#ifdef assert
+  #undef assert
+  #ifdef vmassert
+    #define assert(p, ...) vmassert(p, __VA_ARGS__)
+  #endif
+#endif
+
 struct InterfaceEntry {
   char* name;
   traceid id;

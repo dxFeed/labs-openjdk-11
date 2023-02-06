@@ -36,6 +36,12 @@ You can verify the labsjdk build with:
 The original JDK README is [here](README).
 Further information on building JDK 11 is [here](doc/building.md).
 
+### Build instruction for Mac
+
+```
+python3 build_labsjdk.py --jvmci-version 22.3.1 --configure-option=--disable-warnings-as-errors
+```
+
 iOS static libraries build instructions:
    - build jdk normally for MacOS
    - open jdk-11-ios.xcodeproj in the XCode and press build button or
