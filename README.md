@@ -37,9 +37,18 @@ The original JDK README is [here](README).
 Further information on building JDK 11 is [here](doc/building.md).
 
 ### Build instruction for Mac
-
+_**Current release:**_ https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-22.3.1
 ```
-python3 build_labsjdk.py --jvmci-version 22.3.1 --configure-option=--disable-warnings-as-errors
+Andrey.Mikhalev@UNIT-1738 Downloads % ./graalvm-ce-java11-22.3.1/Contents/Home/bin/java --version
+openjdk 11.0.18 2023-01-17
+OpenJDK Runtime Environment GraalVM CE 22.3.1 (build 11.0.18+10-jvmci-22.3-b13)
+OpenJDK 64-Bit Server VM GraalVM CE 22.3.1 (build 11.0.18+10-jvmci-22.3-b13, mixed mode, sharing)
+```
+So we have to build _JVMCI_VERSION_ = **22.3-b13**
+```
+cd labs-openjdk-11
+export JAVA_HOME=/Users/Andrey.Mikhalev/Downloads/graalvm-ce-java11-22.3.1/Contents/Home
+python3 build_labsjdk.py --jvmci-version 22.3-b13 --configure-option=--disable-warnings-as-errors
 ```
 
 iOS static libraries build instructions:
