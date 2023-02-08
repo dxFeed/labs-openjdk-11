@@ -37,6 +37,11 @@ The original JDK README is [here](README).
 Further information on building JDK 11 is [here](doc/building.md).
 
 ### Build instruction for Mac
+1. CLone this repo and add oracle origin: https://github.com/dxFeed/labs-openjdk-11.git
+<img width="406" alt="image" src="https://user-images.githubusercontent.com/4503006/217626101-762b201e-f30d-4563-9961-a49fddd995c1.png">
+
+
+
 _**Current release:**_ https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-22.3.1
 ```
 Andrey.Mikhalev@UNIT-1738 Downloads % ./graalvm-ce-java11-22.3.1/Contents/Home/bin/java --version
