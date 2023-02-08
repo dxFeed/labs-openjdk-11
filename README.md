@@ -49,6 +49,13 @@ So we have to build _JVMCI_VERSION_ = **22.3-b13**
 cd labs-openjdk-11
 export JAVA_HOME=/Users/Andrey.Mikhalev/Downloads/graalvm-ce-java11-22.3.1/Contents/Home
 python3 build_labsjdk.py --jvmci-version 22.3-b13 --configure-option=--disable-warnings-as-errors
+
+
+
+Andrey.Mikhalev@UNIT-1738 labs-openjdk-11 % ./build/labsjdks/release/labsjdk-ce-11.0.18-jvmci-22.3-b13/Contents/Home/bin/java --version      
+openjdk 11.0.18 2023-01-17
+OpenJDK Runtime Environment (build 11.0.18+10-jvmci-22.3-b13)
+OpenJDK 64-Bit Server VM (build 11.0.18+10-jvmci-22.3-b13, mixed mode)
 ```
 
 iOS static libraries build instructions:
