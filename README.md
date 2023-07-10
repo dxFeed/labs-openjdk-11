@@ -37,34 +37,116 @@ The original JDK README is [here](README).
 Further information on building JDK 11 is [here](doc/building.md).
 
 ### Build instruction for Mac
-1. Clone this repo and add oracle origin: https://github.com/graalvm/labs-openjdk-11.git
-<img width="406" alt="image" src="https://user-images.githubusercontent.com/4503006/217626101-762b201e-f30d-4563-9961-a49fddd995c1.png">
+1. Clone this repo and checkout to branch `release/jvmci/22.3`
+2. Add oracle origin: `https://github.com/graalvm/labs-openjdk-11.git`
 
-
-
-_**Current release:**_ https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-22.3.1
 ```
-Andrey.Mikhalev@UNIT-1738 Downloads % ./graalvm-ce-java11-22.3.1/Contents/Home/bin/java --version
-openjdk 11.0.18 2023-01-17
-OpenJDK Runtime Environment GraalVM CE 22.3.1 (build 11.0.18+10-jvmci-22.3-b13)
-OpenJDK 64-Bit Server VM GraalVM CE 22.3.1 (build 11.0.18+10-jvmci-22.3-b13, mixed mode, sharing)
+$ git remote add oracle https://github.com/graalvm/labs-openjdk-11.git
+$ git fetch oracle               
+remote: Enumerating objects: 4743, done.
+remote: Counting objects: 100% (4677/4677), done.
+remote: Compressing objects: 100% (2042/2042), done.
+remote: Total 4743 (delta 2414), reused 4667 (delta 2408), pack-reused 66
+Receiving objects: 100% (4743/4743), 7.78 MiB | 10.69 MiB/s, done.
+Resolving deltas: 100% (2415/2415), completed with 52 local objects.
+From https://github.com/graalvm/labs-openjdk-11
+ * [new branch]            master             -> oracle/master
+ * [new branch]            release/jvmci/19.3 -> oracle/release/jvmci/19.3
+ * [new branch]            release/jvmci/20.0 -> oracle/release/jvmci/20.0
+ * [new branch]            release/jvmci/20.1 -> oracle/release/jvmci/20.1
+ * [new branch]            release/jvmci/20.3 -> oracle/release/jvmci/20.3
+ * [new branch]            release/jvmci/21.0 -> oracle/release/jvmci/21.0
+ * [new branch]            release/jvmci/21.1 -> oracle/release/jvmci/21.1
+ * [new branch]            release/jvmci/21.2 -> oracle/release/jvmci/21.2
+ * [new branch]            release/jvmci/21.3 -> oracle/release/jvmci/21.3
+ * [new branch]            release/jvmci/22.0 -> oracle/release/jvmci/22.0
+ * [new branch]            release/jvmci/22.1 -> oracle/release/jvmci/22.1
+ * [new branch]            release/jvmci/22.2 -> oracle/release/jvmci/22.2
+ * [new branch]            release/jvmci/22.3 -> oracle/release/jvmci/22.3
+ * [new tag]               jdk-11.0.16.1+0    -> jdk-11.0.16.1+0
+ * [new tag]               jdk-11.0.16.1+1    -> jdk-11.0.16.1+1
+ * [new tag]               jdk-11.0.16.1-ga   -> jdk-11.0.16.1-ga
+ * [new tag]               jdk-11.0.17+0      -> jdk-11.0.17+0
+ * [new tag]               jdk-11.0.17+1      -> jdk-11.0.17+1
+ * [new tag]               jdk-11.0.17+2      -> jdk-11.0.17+2
+ * [new tag]               jdk-11.0.17+3      -> jdk-11.0.17+3
+ * [new tag]               jdk-11.0.17+4      -> jdk-11.0.17+4
+ * [new tag]               jdk-11.0.17+5      -> jdk-11.0.17+5
+ * [new tag]               jdk-11.0.17+6      -> jdk-11.0.17+6
+ * [new tag]               jdk-11.0.17+7      -> jdk-11.0.17+7
+ * [new tag]               jdk-11.0.17+8      -> jdk-11.0.17+8
+ * [new tag]               jdk-11.0.17-ga     -> jdk-11.0.17-ga
+ * [new tag]               jdk-11.0.18+0      -> jdk-11.0.18+0
+ * [new tag]               jdk-11.0.18+1      -> jdk-11.0.18+1
+ * [new tag]               jdk-11.0.18+10     -> jdk-11.0.18+10
+ * [new tag]               jdk-11.0.18+2      -> jdk-11.0.18+2
+ * [new tag]               jdk-11.0.18+3      -> jdk-11.0.18+3
+ * [new tag]               jdk-11.0.18+4      -> jdk-11.0.18+4
+ * [new tag]               jdk-11.0.18+5      -> jdk-11.0.18+5
+ * [new tag]               jdk-11.0.18+6      -> jdk-11.0.18+6
+ * [new tag]               jdk-11.0.18+7      -> jdk-11.0.18+7
+ * [new tag]               jdk-11.0.18+8      -> jdk-11.0.18+8
+ * [new tag]               jdk-11.0.18+9      -> jdk-11.0.18+9
+ * [new tag]               jdk-11.0.18-ga     -> jdk-11.0.18-ga
+ * [new tag]               jdk-11.0.19+0      -> jdk-11.0.19+0
+ * [new tag]               jvmci-22.3-b04     -> jvmci-22.3-b04
+ * [new tag]               jvmci-22.3-b05     -> jvmci-22.3-b05
+ * [new tag]               jvmci-22.3-b06     -> jvmci-22.3-b06
+ * [new tag]               jvmci-22.3-b07     -> jvmci-22.3-b07
+ * [new tag]               jvmci-22.3-b08     -> jvmci-22.3-b08
+ * [new tag]               jvmci-22.3-b09     -> jvmci-22.3-b09
+ * [new tag]               jvmci-22.3-b10     -> jvmci-22.3-b10
+ * [new tag]               jvmci-22.3-b12     -> jvmci-22.3-b12
+ * [new tag]               jvmci-22.3-b13     -> jvmci-22.3-b13
+ * [new tag]               jdk-11.0.19+1      -> jdk-11.0.19+1
+ * [new tag]               jdk-11.0.19+2      -> jdk-11.0.19+2
+ * [new tag]               jdk-11.0.19+3      -> jdk-11.0.19+3
+ * [new tag]               jdk-11.0.19+4      -> jdk-11.0.19+4
+ * [new tag]               jdk-11.0.19+5      -> jdk-11.0.19+5
+ * [new tag]               jdk-11.0.19+6      -> jdk-11.0.19+6
+ * [new tag]               jdk-11.0.19+7      -> jdk-11.0.19+7
+ * [new tag]               jdk-11.0.19-ga     -> jdk-11.0.19-ga
+ * [new tag]               jdk-11.0.20+0      -> jdk-11.0.20+0
+ * [new tag]               jdk-11.0.20+1      -> jdk-11.0.20+1
+ * [new tag]               jdk-11.0.20+2      -> jdk-11.0.20+2
+ * [new tag]               jdk-11.0.20+3      -> jdk-11.0.20+3
+ * [new tag]               jdk-11.0.20+4      -> jdk-11.0.20+4
+ * [new tag]               jdk-11.0.20+5      -> jdk-11.0.20+5
+ * [new tag]               jdk-11.0.20+6      -> jdk-11.0.20+6
+ * [new tag]               jdk-11.0.20+7      -> jdk-11.0.20+7
+ * [new tag]               jdk-11.0.21+7      -> jdk-11.0.21+7
+ * [new tag]               jvmci-21.3-b23     -> jvmci-21.3-b23
+ * [new tag]               jvmci-22.3-b14     -> jvmci-22.3-b14
+ * [new tag]               jvmci-22.3-b16     -> jvmci-22.3-b16
+ * [new tag]               jvmci-22.3-b17     -> jvmci-22.3-b17
+ * [new tag]               jvmci-22.3-b18     -> jvmci-22.3-b18
+ * [new tag]               jvmci-23.0-b01     -> jvmci-23.0-b01
 ```
-So we have to build _JVMCI_VERSION_ = **22.3-b13**
+
+2. Download https://github.com/graalvm/labs-openjdk-11/releases/tag/jvmci-22.3-b13
+
+3. Remove `com.apple.quarantine` from downloaded ZIP and unpack it
 ```
-cd labs-openjdk-11
-export JAVA_HOME=/Users/Andrey.Mikhalev/Downloads/graalvm-ce-java11-22.3.1/Contents/Home
-python3 build_labsjdk.py --jvmci-version 22.3-b13 --configure-option=--disable-warnings-as-errors
+$ xattr -d com.apple.quarantine ./labsjdk-ce-11.0.18+10-jvmci-22.3-b13-darwin-amd64.tar.gz
+$ Unpack ZIP to labsjdk-ce-11.0.18-jvmci-22.3-b13
+$ export JAVA_HOME=<ABSOLUTE_PATH>/labsjdk-ce-11.0.18-jvmci-22.3-b13/Contents/Home
+```
 
-
-
-Andrey.Mikhalev@UNIT-1738 labs-openjdk-11 % ./build/labsjdks/release/labsjdk-ce-11.0.18-jvmci-22.3-b13/Contents/Home/bin/java --version      
+4. Verify downloaded build version
+```
+$ java --version                                                                                   
 openjdk 11.0.18 2023-01-17
 OpenJDK Runtime Environment (build 11.0.18+10-jvmci-22.3-b13)
 OpenJDK 64-Bit Server VM (build 11.0.18+10-jvmci-22.3-b13, mixed mode)
+
+```
+5. Go to the cloned repo directory and build `JVMCI_VERSION=22.3-b13`
+```
+cd labs-openjdk-11
+python3 build_labsjdk.py --jvmci-version 22.3-b13 --configure-option=--disable-warnings-as-errors
 ```
 
 iOS static libraries build instructions:
    - build jdk normally for MacOS
    - open jdk-11-ios.xcodeproj in the XCode and press build button or
-   - build the jdk-11-ios.xcodeproj project form command line with xcodebuild.sh ...
- 
+   - build the jdk-11-ios.xcodeproj project from command line with xcodebuild.sh ...
