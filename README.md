@@ -38,29 +38,34 @@ Further information on building JDK 11 is [here](doc/building.md).
 
 ### Build instruction for Mac
 1. Clone this repo and add oracle origin: https://github.com/graalvm/labs-openjdk-11.git
-<img width="406" alt="image" src="https://user-images.githubusercontent.com/4503006/217626101-762b201e-f30d-4563-9961-a49fddd995c1.png">
 
-
-
-_**Current release:**_ https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-22.3.1
 ```
-Andrey.Mikhalev@UNIT-1738 Downloads % ./graalvm-ce-java11-22.3.1/Contents/Home/bin/java --version
+$ git add remote oracle https://github.com/graalvm/labs-openjdk-11.git
+$ git fetch oracle 
+```
+
+2. Download https://github.com/graalvm/labs-openjdk-11/releases/tag/jvmci-22.3-b13
+
+3. Remove com.apple.quarantine from downloaded ZIP and unpack it
+```
+$ xattr -d com.apple.quarantine ./labsjdk-ce-11.0.18+10-jvmci-22.3-b13-darwin-amd64.tar.gz
+$ UNPACK
+$ export JAVA_HOME=<PATH>/labsjdk-ce-11.0.18-jvmci-22.3-b13/Contents/Home
+```
+
+4. Verify downloaded build version
+```
+$ java --version                                                                                   
 openjdk 11.0.18 2023-01-17
-OpenJDK Runtime Environment GraalVM CE 22.3.1 (build 11.0.18+10-jvmci-22.3-b13)
-OpenJDK 64-Bit Server VM GraalVM CE 22.3.1 (build 11.0.18+10-jvmci-22.3-b13, mixed mode, sharing)
+OpenJDK Runtime Environment (build 11.0.18+10-jvmci-22.3-b13)
+OpenJDK 64-Bit Server VM (build 11.0.18+10-jvmci-22.3-b13, mixed mode)
+
 ```
-So we have to build _JVMCI_VERSION_ = **22.3-b13**
+5. Got to repo directory and build _JVMCI_VERSION_ = **22.3-b13**
 ```
 cd labs-openjdk-11
 export JAVA_HOME=/Users/Andrey.Mikhalev/Downloads/graalvm-ce-java11-22.3.1/Contents/Home
 python3 build_labsjdk.py --jvmci-version 22.3-b13 --configure-option=--disable-warnings-as-errors
-
-
-
-Andrey.Mikhalev@UNIT-1738 labs-openjdk-11 % ./build/labsjdks/release/labsjdk-ce-11.0.18-jvmci-22.3-b13/Contents/Home/bin/java --version      
-openjdk 11.0.18 2023-01-17
-OpenJDK Runtime Environment (build 11.0.18+10-jvmci-22.3-b13)
-OpenJDK 64-Bit Server VM (build 11.0.18+10-jvmci-22.3-b13, mixed mode)
 ```
 
 iOS static libraries build instructions:
