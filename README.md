@@ -37,7 +37,7 @@ The original JDK README is [here](README).
 Further information on building JDK 11 is [here](doc/building.md).
 
 ### Build instruction for Mac
-1. Clone this repo and checkout to branch `release/jvmci/22.3`
+1. Clone this repo and checkout to branch `release/jvmci/22.3-b13-fix-sun-management`
 2. Add oracle origin: `https://github.com/graalvm/labs-openjdk-11.git`
 
 ```
